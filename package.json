@@ -1,5 +1,5 @@
 {
-  "name": "template",
+  "name": "hello-world",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,9 +9,6 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "vite": "^4.1.0"
-  },
-  "dependencies": {
-    "three": "^0.149.0"
+    "vite": "^5.0.8"
   }
 }
