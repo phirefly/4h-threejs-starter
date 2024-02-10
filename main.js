@@ -18,15 +18,18 @@ scene.add(cubeMesh);
 
 
 const camera = new THREE.PerspectiveCamera(
-  75,
+  35,
   window.innerWidth / window.innerHeight,
   0.1,
-  1000
+  200
 );
 
-camera.position.z = 20;
+// Z: closer and further
+camera.position.z = 25;
+// X: left and right
 camera.position.x = 0;
-camera.position.y = -5;
+// Y: up and down
+camera.position.y = -2;
 
 
 const canvas = document.querySelector('canvas.threejs-canvas');
