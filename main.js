@@ -11,9 +11,11 @@ const cubeMaterial = new THREE.MeshLambertMaterial({
   // color: 0x999999
 });
 
-const torusMaterial = new THREE.MeshLambertMaterial({
+// const torusMaterial = new THREE.MeshLambertMaterial({
+const torusMaterial = new THREE.MeshPhongMaterial({
   color: 0x999999
 });
+torusMaterial.shininess = 500;
 
 const cubeMesh = new THREE.Mesh(
   cubeGeometry,
