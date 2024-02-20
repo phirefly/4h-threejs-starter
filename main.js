@@ -1,8 +1,11 @@
 import * as THREE from 'three';
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+import { Pane } from 'tweakpane';
 
 console.log("Hello World!");
 console.log(THREE);
+
+const pane = new Pane();
 
 const scene = new THREE.Scene();
 const cubeGeometry = new THREE.BoxGeometry(1, 1, 1);
@@ -16,6 +19,12 @@ const torusMaterial = new THREE.MeshPhongMaterial({
   color: 0x999999
 });
 torusMaterial.shininess = 500;
+
+pane.addBinding(torusMaterial, 'shininess', {
+    min: 0,
+    max: 1000,
+    step: 1
+})
 
 const cubeMesh = new THREE.Mesh(
   cubeGeometry,
