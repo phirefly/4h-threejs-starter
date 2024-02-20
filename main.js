@@ -26,9 +26,12 @@ pane.addBinding(torusMaterial, 'shininess', {
 })
 
 const textureLoader = new THREE.TextureLoader();
-const myTexture = textureLoader.load('/textures/mossy-ground1-bl/mossy-ground1-bl/mossy-ground1-albedo.png')
+const myTexture = textureLoader.load('public/textures/rock-snow-ice1-2k-bl/rock-snow-ice1-2k_Normal-ogl.png')
 cubeMaterial.map = myTexture;
 
+const planeGeometry = new THREE.PlaneGeometry(5,5,5)
+const planeMesh = new THREE.Mesh(planeGeometry, cubeMaterial)
+planeMesh.position.x = -3.5
 
 const cubeMesh = new THREE.Mesh(
   cubeGeometry,
@@ -49,6 +52,7 @@ scene.add(pointLight);
 
 scene.add(cubeMesh);
 scene.add(mesh2);
+scene.add(planeMesh)
 
 
 const camera = new THREE.PerspectiveCamera(
@@ -59,7 +63,7 @@ const camera = new THREE.PerspectiveCamera(
 );
 
 // Z: closer and further
-camera.position.z = 5;
+camera.position.z = 15;
 // X: left and right
 camera.position.x = 0;
 // Y: up and down
