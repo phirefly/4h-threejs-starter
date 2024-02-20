@@ -11,19 +11,29 @@ const cubeMaterial = new THREE.MeshLambertMaterial({
   // color: 0x999999
 });
 
+const torusMaterial = new THREE.MeshLambertMaterial({
+  color: 0x999999
+});
+
 const cubeMesh = new THREE.Mesh(
   cubeGeometry,
   cubeMaterial
 )
 
+const torusKnotGeometry = new THREE.TorusKnotGeometry(0.5, 0.15, 100, 16)
+const mesh2 = new THREE.Mesh(torusKnotGeometry, torusMaterial)
+mesh2.position.x = 1.75
+
+
 const light = new THREE.AmbientLight(0xffffff, .5);
 scene.add(light);
 
 const pointLight = new THREE.PointLight(0xffffff, 20);
-pointLight.position.set(7,5,5)
+pointLight.position.set(5,2,2)
 scene.add(pointLight);
 
 scene.add(cubeMesh);
+scene.add(mesh2);
 
 
 const camera = new THREE.PerspectiveCamera(
