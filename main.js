@@ -11,7 +11,6 @@ const scene = new THREE.Scene();
 const cubeGeometry = new THREE.BoxGeometry(1, 1, 1);
 const cubeMaterial = new THREE.MeshLambertMaterial({
   color: 0x5CA8C6
-  // color: 0x999999
 });
 
 // const torusMaterial = new THREE.MeshLambertMaterial({
@@ -25,6 +24,11 @@ pane.addBinding(torusMaterial, 'shininess', {
     max: 1000,
     step: 1
 })
+
+const textureLoader = new THREE.TextureLoader();
+const myTexture = textureLoader.load('/textures/mossy-ground1-bl/mossy-ground1-bl/mossy-ground1-albedo.png')
+cubeMaterial.map = myTexture;
+
 
 const cubeMesh = new THREE.Mesh(
   cubeGeometry,
