@@ -6,14 +6,22 @@ console.log(THREE);
 
 const scene = new THREE.Scene();
 const cubeGeometry = new THREE.BoxGeometry(1, 1, 1);
-const cubeMaterial = new THREE.MeshBasicMaterial({
-  color: 0xff0000
+const cubeMaterial = new THREE.MeshLambertMaterial({
+  color: 0x5CA8C6
+  // color: 0x999999
 });
 
 const cubeMesh = new THREE.Mesh(
   cubeGeometry,
   cubeMaterial
 )
+
+const light = new THREE.AmbientLight(0xffffff, .5);
+scene.add(light);
+
+const pointLight = new THREE.PointLight(0xffffff, 20);
+pointLight.position.set(7,5,5)
+scene.add(pointLight);
 
 scene.add(cubeMesh);
 
@@ -47,6 +55,8 @@ const controls = new OrbitControls(camera, canvas);
 controls.enableDamping = true;
 
 // controls.autoRotate = true;
+
+
 
 window.addEventListener('resize', () =>{
   camera.aspect = window.innerWidth / window.innerHeight;
